@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HireLens - AI Resume Analyzer</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>HireLens</h1>
+<p>AI Powered Resume Analyzer</p>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="resume" required>
+
+<button type="submit">Analyze Resume</button>
+
+</form>
+
+{% if skills %}
+
+<h2>Detected Skills</h2>
+
+<ul>
+{% for skill in skills %}
+<li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

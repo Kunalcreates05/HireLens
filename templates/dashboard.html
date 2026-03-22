@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>HireLens Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="main">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2>HireLens</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Analyze Resume</a>
+<a href="#">Jobs</a>
+<a href="#">Logout</a>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<h1>AI Resume Analyzer</h1>
+
+<div class="upload-card">
+
+<form method="POST" enctype="multipart/form-data">
+
+<label class="upload-area">
+
+<input type="file" name="resume" required>
+
+<div class="upload-content">
+<h3>📄 Upload Resume</h3>
+<p>Click or drag & drop</p>
+</div>
+
+</label>
+
+<button type="submit" class="primary">Analyze Resume</button>
+
+</form>
+
+</div>
+
+{% if score %}
+
+<div class="grid">
+
+<div class="card">
+<h2>ATS Score</h2>
+<p class="score">{{score}}%</p>
+</div>
+
+<div class="card">
+<h2>Skills</h2>
+<ul>
+{% for s in skills %}
+<li>{{s}}</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="card">
+<h2>Suggestions</h2>
+<ul>
+{% for s in suggestions %}
+<li>{{s}}</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="card">
+<h2>Jobs</h2>
+<ul>
+{% for j in jobs %}
+<li>{{j}}</li>
+{% endfor %}
+</ul>
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>
